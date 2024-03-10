@@ -1,7 +1,7 @@
 package com.example.edulightbe.entities;
 
 import com.example.edulightbe.core.ResponsibleEntity;
-import com.example.edulightbe.dtos.AccountCreatorDto;
+import com.example.edulightbe.dtos.accounts.AccountCreatorDto;
 import com.example.edulightbe.dtos.response.AccountResponseDto;
 import com.example.edulightbe.utils.enums.AccountGenderEnum;
 import com.example.edulightbe.utils.enums.AccountRoleEnum;

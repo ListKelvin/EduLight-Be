@@ -1,4 +1,4 @@
-package com.example.edulightbe.dtos;
+package com.example.edulightbe.dtos.accounts;
 
 import lombok.Data;
 

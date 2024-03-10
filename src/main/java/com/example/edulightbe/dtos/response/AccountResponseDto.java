@@ -1,6 +1,6 @@
 package com.example.edulightbe.dtos.response;
 
-import com.example.edulightbe.dtos.AccountCreatorDto;
+import com.example.edulightbe.dtos.accounts.AccountCreatorDto;
 import com.example.edulightbe.utils.enums.AccountGenderEnum;
 import com.example.edulightbe.utils.enums.AccountRoleEnum;
 import com.example.edulightbe.utils.enums.AccountStatusEnum;
