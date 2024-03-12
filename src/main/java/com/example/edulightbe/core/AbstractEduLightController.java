@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AbstractEduLightController<EntityType extends ResponsibleEntity<ResponseType>, IdType, CreateDto extends DtoBase<EntityType>, UpdateDto extends DtoBase<EntityType>, ResponseType> implements ZooManagementController<EntityType, IdType, CreateDto, UpdateDto, ResponseType> {
+public abstract class AbstractEduLightController<EntityType extends ResponsibleEntity<ResponseType>, IdType, CreateDto extends DtoBase<EntityType>, UpdateDto extends DtoBase<EntityType>, ResponseType> implements EduLightController<EntityType, IdType, CreateDto, UpdateDto, ResponseType> {
     @Autowired
     protected EduLightService<EntityType, IdType, CreateDto, UpdateDto> service;
 
