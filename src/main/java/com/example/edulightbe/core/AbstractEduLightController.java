@@ -1,5 +1,6 @@
 package com.example.edulightbe.core;
 
+
 import com.example.edulightbe.errors.EduLightException;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -8,7 +9,7 @@ import java.util.List;
 
 public abstract class AbstractEduLightController<EntityType extends ResponsibleEntity<ResponseType>, IdType, CreateDto extends DtoBase<EntityType>, UpdateDto extends DtoBase<EntityType>, ResponseType> implements EduLightController<EntityType, IdType, CreateDto, UpdateDto, ResponseType> {
     @Autowired
-    protected EduLightService<EntityType, IdType, CreateDto, UpdateDto> service;
+    public EduLightService<EntityType, IdType, CreateDto, UpdateDto> service;
 
     @Override
     public List<ResponseType> doGetMany() throws EduLightException {

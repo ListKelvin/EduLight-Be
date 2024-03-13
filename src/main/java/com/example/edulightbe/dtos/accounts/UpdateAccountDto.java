@@ -4,9 +4,7 @@ import com.example.edulightbe.core.DtoBase;
 import com.example.edulightbe.entities.Account;
 import com.example.edulightbe.utils.IsEnum;
 import com.example.edulightbe.utils.enums.AccountGenderEnum;
-import com.swp.ZooManagement.core.DtoBase;
-import com.swp.ZooManagement.utils.IsEnum;
-import com.swp.ZooManagement.utils.enums.AccountGenderEnum;
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;

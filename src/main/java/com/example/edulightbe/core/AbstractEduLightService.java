@@ -9,14 +9,12 @@ import com.example.edulightbe.errors.EntityNotFoundErrorReport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-/**
- *
- * @author Le Thanh Long
- */
+@Service
 public abstract class AbstractEduLightService<EntityType, IdType, CreateDto extends DtoBase<EntityType>, UpdateDto extends DtoBase<EntityType>> implements EduLightService<EntityType, IdType, CreateDto, UpdateDto> {
     @Autowired
     protected JpaRepository<EntityType, IdType> repository;

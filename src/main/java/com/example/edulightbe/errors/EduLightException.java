@@ -1,8 +1,16 @@
 package com.example.edulightbe.errors;
 
+
 import com.example.edulightbe.core.ErrorReport;
 
-public class EduLightException extends Exception{
+import lombok.Getter;
+
+/**
+ *
+ * @author Le Thanh Long
+ */
+@Getter
+public class EduLightException extends Exception {
     private final ErrorReport report;
 
     public EduLightException(ErrorReport report) {

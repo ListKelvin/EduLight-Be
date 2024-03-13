@@ -32,10 +32,10 @@ public class Account implements ResponsibleEntity<AccountResponseDto> {
     @Column(nullable = false)
     private AccountGenderEnum gender;
 
-    @Column(nullable = false, columnDefinition = "NVARCHAR(30)")
+    @Column(nullable = false, columnDefinition = "varchar(30)")
     private String fname;
 
-    @Column(nullable = false, columnDefinition = "NVARCHAR(30)")
+    @Column(nullable = false, columnDefinition = "varchar(30)")
     private String lname;
 
     @Column(nullable = false, unique = true, length = 20)

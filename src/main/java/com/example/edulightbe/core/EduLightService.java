@@ -1,9 +1,10 @@
 package com.example.edulightbe.core;
 
 import com.example.edulightbe.errors.EduLightException;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public interface EduLightService<EntityType, IdType, CreateDto extends DtoBase<EntityType>, UpdateDto extends DtoBase<EntityType>> {
 //    FilterDto dto
     List<EntityType> findAll();

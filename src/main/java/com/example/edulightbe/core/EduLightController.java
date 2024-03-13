@@ -5,7 +5,7 @@
 package com.example.edulightbe.core;
 
 import com.example.edulightbe.errors.EduLightException;
-import com.swp.ZooManagement.errors.ZooManagementException;
+
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
