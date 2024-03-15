@@ -9,7 +9,7 @@ import lombok.Data;
 import java.time.Instant;
 
 @Data
-public class AccountResponseDto {
+public class AccountResponseDto  {
     private String id;
     private String email;
     private AccountRoleEnum role;
