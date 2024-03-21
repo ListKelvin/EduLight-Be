@@ -4,8 +4,7 @@
  */
 package com.example.edulightbe.errors;
 
-import com.swp.ZooManagement.core.ErrorReport;
-import com.swp.ZooManagement.errors.ZooManagementException;
+import com.example.edulightbe.core.ErrorReport;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,14 +24,14 @@ import java.util.List;
 @ControllerAdvice
 public class EduLightControllerAdvisor {
     @ExceptionHandler(Exception.class)
-    protected ResponseEntity<ErrorReport<?>> handleZooManagementException(Exception e, HttpServletRequest request) {
+    protected ResponseEntity<ErrorReport<?>> handleEduLightException(Exception e, HttpServletRequest request) {
         e.printStackTrace();
         ErrorReport<?> report = new ErrorReport<>("Unhandled Exception", null);
         return new ResponseEntity<>(report, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    @ExceptionHandler(ZooManagementException.class)
-    protected ResponseEntity<ErrorReport<?>> handleZooManagementException(ZooManagementException e, HttpServletRequest request) {
+    @ExceptionHandler(EduLightException.class)
+    protected ResponseEntity<ErrorReport<?>> handleEduLightException(EduLightException e, HttpServletRequest request) {
         return new ResponseEntity<>(e.getReport(), HttpStatus.BAD_REQUEST);
     }
 
@@ -42,13 +41,13 @@ public class EduLightControllerAdvisor {
         for (FieldError error : e.getFieldErrors()) {
             errors.add(new ValidationError(error.getField(), error.getRejectedValue(), error.getDefaultMessage()));
         }
-        return handleZooManagementException(new ZooManagementException(new ValidationErrorReport(errors)), request);
+        return handleEduLightException(new EduLightException(new ValidationErrorReport(errors)), request);
     }
 
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
     protected ResponseEntity<ErrorReport<?>> handleMethodArgumentTypeMismatchException(MethodArgumentTypeMismatchException e, HttpServletRequest request) {
         List<ValidationError> errors = new ArrayList<>();
         errors.add(new ValidationError(e.getPropertyName(), e.getValue(), e.getMessage()));
-        return handleZooManagementException(new ZooManagementException(new ValidationErrorReport(errors)), request);
+        return handleEduLightException(new EduLightException(new ValidationErrorReport(errors)), request);
     }
 }
