@@ -2,8 +2,13 @@ package com.example.edulightbe.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.time.Instant;
 import java.util.Date;
 
 @Entity
@@ -13,35 +18,47 @@ public class Course {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    private Integer id;
+
     @Column(nullable = false, unique = true, length = 60)
     private String title;
 
-//    @Column()
+    @Column(name = "description")
     private String description;
 
     // make this prop as an enum
     @Column(nullable = false)
     private String category;
-    @Column(nullable = false)
-   private String level;
+
+    @Column(name = "level",nullable = false)
+    private String level;
 
     //(foreign key references User.user_id)
-    private  Account instructor_id ;
+    @ManyToOne
+    private  Account account ;
 
+    @Column(nullable = false)
     private Float price ;
-    @Column(name = "image")
+
+    @Column
     private String image;
 
-    @Column(name = "created_by")
-    private String createdBy;
+    @ManyToOne
+    @CreatedBy
+    private Account createdBy;
 
 
-    @Column(name = "modified_by")
-    private String modifiedBy;
+    @ManyToOne
+    @LastModifiedBy
+    private Account updatedBy;
 
-    @Column(name = "createdDate")
-    private Date createdDate;
+    @Column
+    @LastModifiedDate
+    private Instant updatedAt;
+
+    @Column
+    @CreatedDate
+    private Instant createdAt;
 
 
 }
