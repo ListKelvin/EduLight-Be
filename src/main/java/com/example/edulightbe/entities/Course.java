@@ -1,5 +1,9 @@
 package com.example.edulightbe.entities;
 
+import com.example.edulightbe.core.ResponsibleEntity;
+import com.example.edulightbe.dtos.accounts.AccountCreatorDto;
+import com.example.edulightbe.dtos.response.AccountResponseDto;
+import com.example.edulightbe.dtos.response.CourseResponseDto;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedBy;
@@ -14,7 +18,7 @@ import java.util.Date;
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 @Data
-public class Course {
+public class Course implements ResponsibleEntity<CourseResponseDto> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -58,4 +62,27 @@ public class Course {
     //(foreign key references User.user_id)
     @ManyToOne
     private  Account account;
+
+
+    @Override
+    public CourseResponseDto toResponseDto() {
+        CourseResponseDto responseDto = new CourseResponseDto();
+        responseDto.setTitle(title);
+        responseDto.setDescription(description);
+        responseDto.setLevel(level);
+        responseDto.setPrice(price);
+        responseDto.setThumbnail(thumbnail);
+        if (createdBy != null) {
+            responseDto.setCreatedBy(createdBy.toCreatorDto());
+            responseDto.setCreatedAt(createdAt);
+
+        }
+        if (updatedBy != null) {
+            responseDto.setUpdatedBy(updatedBy.toCreatorDto());
+            responseDto.setUpdatedAt(updatedAt);
+        }
+        return responseDto;
+    }
+
+
 }

@@ -1,20 +1,15 @@
 package com.example.edulightbe.dtos.courses;
 
 import com.example.edulightbe.core.DtoBase;
-import com.example.edulightbe.entities.Account;
 import com.example.edulightbe.entities.Course;
 import com.example.edulightbe.utils.IsEnum;
-import com.example.edulightbe.utils.enums.AccountGenderEnum;
-import com.example.edulightbe.utils.enums.AccountRoleEnum;
 import com.example.edulightbe.utils.enums.CourseCategoryEnum;
 import com.example.edulightbe.utils.enums.CourseLevelEnum;
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Data
-public class CreateCourseDto implements DtoBase<Course> {
-
+public class UpdateCourseDto implements DtoBase<Course> {
     @NotBlank(message = "Title must be not blank")
     private String title;
 
