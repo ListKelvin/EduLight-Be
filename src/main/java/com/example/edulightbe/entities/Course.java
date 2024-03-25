@@ -33,20 +33,15 @@ public class Course {
     @Column(name = "level",nullable = false)
     private String level;
 
-    //(foreign key references User.user_id)
-    @ManyToOne
-    private  Account account ;
-
     @Column(nullable = false)
     private Float price ;
 
     @Column
-    private String image;
+    private String thumbnail;
 
     @ManyToOne
     @CreatedBy
     private Account createdBy;
-
 
     @ManyToOne
     @LastModifiedBy
@@ -60,5 +55,7 @@ public class Course {
     @CreatedDate
     private Instant createdAt;
 
-
+    //(foreign key references User.user_id)
+    @ManyToOne
+    private  Account account;
 }
